@@ -537,18 +537,6 @@ padding: .5rem 1rem 0;
   }
 }
 
-//Style code highlight
-.linenos {
- width: $lineno-width; 
-  .linenodiv {
-    width: $lineno-width;
-  }
-}
-
-.code {
-  max-width: $max-width-body - $lineno-width;
-}
-
 //Styling of frontpage
 .posts {
   width: 100%;
