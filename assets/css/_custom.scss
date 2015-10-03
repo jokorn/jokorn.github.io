@@ -60,6 +60,7 @@ $max-width-p: 38.63rem;
 //Set base font-size for rems
 html {
   font-size: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 //Set standard font
