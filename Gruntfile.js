@@ -5,6 +5,28 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+    responsive_images: {
+    myTask: {
+      options: {
+        sizes: [{
+          width: 320,
+        },{
+          width: 640,
+        },{
+          width: 1024,
+        },{
+          width: 2048,
+        }]
+      },
+      files: [{
+        expand: true,
+        src: ['**.{jpg,gif,png}'],
+        cwd: './assets/img',
+        dest: './assets/img/responsive'
+      }]
+    }},
+    
+    
     sass: {
       options: {
         compress: false,
@@ -81,7 +103,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('build', ['sass', 'postcss', 'shell:jekyll']);
+  grunt.registerTask('build', ['sass', 'postcss', 'responsive_images', 'shell:jekyll']);
 
   grunt.registerTask('serve', ['build', 'browserSync', 'watch']);
 }
