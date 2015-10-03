@@ -1,0 +1,8 @@
+<figure class="img-class">
+  <a href="/assets/img/{{include.url}}">
+   <img src="/assets/img/{{include.url}}" alt="{{include.caption}}">
+   </a> 
+  {% if include.caption != "" %}
+  <figcaption>{{include.caption}}</figcaption>
+  {% endif %}
+</figure> 

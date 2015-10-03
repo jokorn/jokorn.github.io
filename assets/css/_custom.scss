@@ -1,0 +1,738 @@
+
+// Media Query Ranges
+$small-max: 40em;
+$medium-min: 40.063em;
+$medium-max: 64em;
+$large-min: 64.063em;
+$large-max: 90em;
+
+
+$screen: 'only screen';
+
+$landscape: '#{$screen} and (orientation: landscape)';
+$portrait: '#{$screen} and (orientation: portrait)';
+
+$small-up: $screen;
+$small-only: '#{$screen} and (max-width: #{$small-max})';
+
+$medium-up: '#{$screen} and (min-width: #{$medium-min})';
+$medium-only: '#{$screen} and (min-width: #{$medium-min}) and (max-width: #{$medium-max})';
+
+$large-up: '#{$screen} and (min-width:#{$large-min})';
+$large-only: '#{$screen} and (min-width: #{$large-min}) and (max-width: #{$large-max})';
+
+//Hide header and footer when printing
+@media print {
+  .mobile-header,
+  .desktop-header,
+  .site-footer {
+    display: none !important;
+  }
+}
+
+
+//colors
+$azure: rgb(81, 156, 231);
+$grey-azure: rgb(67, 85, 103);
+$light-azure: rgb(153, 194, 235);
+$transparent-light-azure: rgba(153, 194, 235, .1);
+$dark-azure: rgb(36, 70, 103);
+$moderate-azure: rgb(63, 122, 180);
+$transparent-white: rgba(255, 255, 255, .98);
+$transparent-grey: rgba(230, 230, 230, .98);
+$p-color: #333;
+
+//Margins
+$large-margin: 2rem;
+$small-margin: 1rem;
+
+//Header heights
+$mobile-header-height: 2.9375rem;//2.625rem;
+$desktop-header-height: 3.375rem;
+
+//width
+$max-width-body: 64rem;
+$max-width-p: 38.63rem;
+
+// Generel styles
+// ----------------------------------------------------------------------------
+
+//Set base font-size for rems
+html {
+  font-size: 100%;
+}
+
+//Set standard font
+body {
+  max-width: $max-width-body;
+
+  margin: 0 auto;
+
+  padding-right: $small-margin;
+  padding-left: $small-margin;
+
+  font-family: 'Open Sans', sans-serif;
+}
+
+//Typography from Foundation Zurb
+
+//Header styling
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+  margin-top: .2rem;
+  margin-bottom: .6rem;
+
+  color: $moderate-azure;
+
+  font-weight: 300;
+  line-height: 1.4;
+  //text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-size: 2.75rem;
+}
+
+h2 {
+  font-size: 2.3125rem;
+}
+
+h3 {
+  font-size: 1.6875rem;
+}
+
+h4 {
+  font-size: 1.4375rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+//Link styling
+a,
+a:visited,
+a:hover,
+a:active {
+  color: $azure;
+
+  text-decoration: none;
+}
+
+//Paragraph styling
+p {
+  margin-bottom: 1.25rem;
+
+  font-size: 1rem;
+  line-height: 1.8;
+  //text-rendering: optimizeLegibility;
+}
+
+//Navigation
+// -------------------------------------------------------------------
+
+
+//Create inline lists for navigation in header and footer
+
+.inline-list {
+  li {
+    display: inline;
+
+    list-style-type: none;
+  }
+
+  a {
+    display: inline;
+    position: relative;
+
+    padding: .1875rem;
+
+    color: $azure;
+
+    text-align: center;
+    
+    //Create transparent borders to avoid jittering on hover
+    @media #{$medium-up} {
+      border: .1875rem solid transparent;
+      border-radius: .125rem;
+    }
+  }
+
+  //borders on hover in same color as link
+  a:hover {
+    @media #{$medium-up} {
+      border-color: $azure;
+    }
+  }
+
+  //higlight current page in darker color
+  .current a {
+    color: $moderate-azure;
+  }
+  //border also darker color for current page
+  .current a:hover {
+    @media #{$medium-up} {
+      border-color: $moderate-azure;
+    }
+  }
+}
+
+//Off canvas list styling
+
+.off-canvas-list {
+  margin: 0;
+
+  padding: 0;
+
+  list-style-type: none;
+
+  li {
+    margin: 0;
+    
+    a {
+      display: block;
+
+      padding: .66667rem;
+
+
+      //hover background change effect transition
+      transition: background 300ms ease;
+
+      border-bottom: .0625rem solid $dark-azure;
+      border-left: .0625rem solid $dark-azure;
+
+      background-color: $transparent-white;
+
+      color: $azure;
+
+      font-size: .9rem;
+    }
+
+    //Change background color on hover
+    a:hover {
+      background: $transparent-grey;
+    }
+  }
+  
+  //Current page highlight in darker color
+  .current a {
+    color: $moderate-azure;
+  }
+}
+
+//position sidebar nav
+.sidebar {
+  position: fixed;
+
+
+  top: $mobile-header-height;
+  right: $small-margin;
+
+  width: 33%;
+  //starting height 0. Height increases when hamburger is pressed
+  height: 0;
+
+  transition: all .5s ease;
+
+  overflow: hidden;
+
+  visibility: hidden;
+  
+  backface-visibility: hidden;
+}
+
+//Hide checkbox
+.sidebar-checkbox {
+  display: none;
+}
+
+//make sidebar navigation appear when hamburger icon is pressed
+.sidebar-checkbox:checked ~ .sidebar {
+  height: 12.8125rem;
+
+  visibility: visible;
+
+  @media #{$medium-up} {
+    display: none;
+  }
+}
+
+//Hamburger icon
+.sidebar-toggle {
+  display: none;
+  @media #{$small-only} {
+    display: block;
+  }
+
+  position: absolute;
+
+  top: .75rem;
+  right: $small-margin; 
+
+  cursor: pointer;
+
+  backface-visibility: hidden;
+
+  //create hamburger icon
+  .icon-bar {
+    display: block;
+    
+    width: 1.5625rem;
+    height: .1875rem;
+
+    margin-bottom: .375rem;
+    
+    //Transition for turning hamburger to x on click
+    transition: transform .5s ease, opacity .2s ease;
+    
+    border-radius: .125rem;
+    
+    background-color: $azure;
+  }
+
+  //Removes clickable area below hamburgericon
+  .last {
+    margin-bottom: 0;
+  }
+}
+
+
+
+//Open menu animation. Middle bar dissappears
+.sidebar-checkbox:checked ~ .sidebar-toggle .middle {
+  opacity: 0;
+}
+
+//Open menu animation. Top bar rotates downwards
+.sidebar-checkbox:checked ~ .sidebar-toggle .first {
+  transform: rotate(45deg);
+  
+  transform-origin: 0% 50%;
+}
+
+//Open menu animation. Bottom bar rotates upwards
+.sidebar-checkbox:checked ~ .sidebar-toggle .last {
+  transform: rotate(-45deg);
+  
+  transform-origin: 0% 50%;
+}
+
+//Close menu animation. Middle bar appears
+.sidebar-checkbox:not(:checked) ~ .sidebar-toggle .middle {
+  opacity: 1;
+}
+
+//Close menu animation. Top bar rotates back
+.sidebar-checkbox:not(:checked) ~ .sidebar-toggle .first {
+  transform: rotate(0);
+  
+  transform-origin: 0% 50%;
+}
+
+//Close menu animation. Bottom bar rotates back
+.sidebar-checkbox:not(:checked) ~ .sidebar-toggle .last {
+  transform: rotate(0);
+  
+  transform-origin: 0% 50%;
+}
+
+
+//Header styling
+// -----------------------------------------------------------
+
+//Parent container for centering. Keep fixed on top all times.
+.parent-header {
+  position: fixed;
+  
+  top: 0;
+  //left 50% to ensure centered when viewport greater than max width
+  left: 50%;
+  
+  width: 100%;
+  //not sure about next line but it works. header perfectly aligned with content on all res.
+  //maybe it accommodates enough room for wrap to be full width body + 2x margin
+  max-width: $max-width-body + $small-margin + $small-margin;
+  height: $desktop-header-height;
+  //Smaller on mobile devices
+  @media #{$small-only}{
+    height: $mobile-header-height;
+  }
+  
+  z-index: 9999;
+
+  //Navigation for large displays
+  .inline-list {
+    display: none;
+    @media #{$medium-up} {
+      display: block;
+    }
+
+    height: $desktop-header-height;
+
+    margin: 0;
+
+    float: right;
+
+    color: $azure;
+
+    line-height: $desktop-header-height;
+    text-align: right;
+
+    //More adequate spacing between nav items
+    li {
+      margin-right: 1rem;
+    }
+    
+    //overrule previous spacing rule to line up border on hover and hr content separator
+    .last {
+      margin-right: 0;
+    }
+  }
+}
+
+//Needed to center fixed header when viewport greater than max width
+.header-wrap {
+  position: relative;
+  
+  //left -50% to ensure centered when viewport greater than max width
+  left: -50%;
+  
+  //max-width same as medium breakpoint and max body width
+  max-width: $max-width-body;
+  
+  padding-right: $small-margin;
+  padding-left: $small-margin;
+  
+  background-color: $transparent-white;
+}
+
+//site-title. smaller on smaller displays
+.site-title {
+  display: inline-block;
+  
+  height: $desktop-header-height;
+  
+  padding: 0;
+  
+  color: $azure !important;//to overrule colors for "a"
+  
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: $desktop-header-height;
+
+
+  @media #{$small-only} {
+    height: $mobile-header-height;
+    
+    font-size: 1.5rem;
+    line-height: $mobile-header-height;
+  }
+}
+
+
+
+
+//Separator between content and header
+.header-hr {
+  position: relative;
+  
+  margin-top: 0;
+  margin-bottom: 0;
+  
+  border: 0;
+  border-top: .0625rem solid $dark-azure;
+}
+
+
+
+
+
+//Main content styling
+.main-content {
+  margin-top: $mobile-header-height + 1.5rem;
+  @media #{$medium-up} {
+    margin-top: $desktop-header-height + 1.5rem;
+  }
+  
+  //Text max width less than body max width to increase legibility
+  p {
+    width: 100%;
+    max-width: $max-width-p;
+    
+    color: $p-color;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  h7 {
+    max-width: $max-width-p;
+  }
+
+  .date {
+    margin: 0;
+    
+    font-size: .75rem;
+  }
+
+  li {
+    max-width: $max-width-p - 2.5rem;//2.5rem is left margin of ul and ol
+    
+    margin-bottom: 1.25rem;
+    
+    color: $p-color;
+    
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  ul li {
+    list-style-type: circle; 
+  }
+
+}
+
+blockquote {
+  max-width: $max-width-p - 2.5rem;
+  
+  margin: 1rem 0 1rem 0;
+  
+  @media #{$medium-up} {
+    max-width: $max-width-p - 5rem;
+    
+    margin: 1rem 0 1rem 2.5rem;
+  }
+  
+padding: .5rem 1rem 0;
+  
+  border-left: .5rem solid $azure;
+
+  background-color: $transparent-light-azure;
+  
+  p {
+    margin: 0;
+  
+    padding-bottom: .5rem;
+  
+    font-size: 1.2rem;
+    font-style: italic;
+    
+    opacity: .8;
+  }
+}
+
+//Styling of frontpage
+.posts {
+  width: 100%;
+  max-width: $max-width-p;
+  
+  color: $p-color;
+  
+  .date {
+    margin: 0;
+    
+    font-size: .75rem;
+  }
+  
+  .post-separator {
+    margin: 1rem 0 2rem;
+    
+    border: 0;
+    border-top: .0625rem solid $dark-azure;
+    
+    opacity: .5;
+    }
+}
+
+.pagination {
+  max-width: $max-width-p;
+  
+  margin: 2rem 0;
+  
+  .previous,
+  .next {
+    width: 4rem;
+    
+    padding: .5rem;
+    
+    transition: background 300ms ease;
+    
+    border: .0625rem solid $azure;
+    border-radius: .0625rem;
+
+    background-color: $transparent-white;
+
+    text-align: center;
+  }
+  
+  .previous:hover,
+  .next:hover {
+    background: $transparent-grey;
+  }
+
+  .previous {
+    float: left;
+
+  }
+  
+  .next {
+    float: right;
+  }
+  
+  .hide {
+    visibility: hidden; 
+  }
+  
+  .page-number {
+    padding: .5rem;
+    
+    float: center;
+    
+    text-align: center;
+  }
+}
+
+//Drop cap
+//p:first-of-type:first-letter { float: left; color: $azure; font-size: 3.4rem; padding-top: 0.7rem; //padding-right: 0.4rem; margin-left: -0.2rem; }
+
+
+//Utilize entire body width for large images. Not restricted to text width
+.img-class {
+  width: 100%;
+  max-width: $max-width-body;
+  
+  margin: 0; 
+  
+  padding: 0;
+  
+  box-sizing: border-box;
+
+  //Images fit entire body width and add small border
+  img {
+    max-width: 100%;
+    
+    border: solid .0625rem $dark-azure;
+    
+    box-sizing: border-box;
+  }
+}
+
+//Figure caption styling
+figcaption {
+  max-width: $max-width-p - 1rem; //1rem is left margin
+  
+  margin: 0 0 1.5rem 0;
+  
+  @media #{$medium-up} {
+    margin: 0 0 1.5rem 1rem;
+  }
+
+  font-size: .9rem;
+  
+  font-style: italic;
+}
+
+//Separator content from navigation
+.navigation-separator {
+  border: 0;
+  border-top: .0625rem solid $dark-azure;
+    
+  opacity: .5;
+}
+
+//Site navigation
+.pagenavigation {
+  margin: 2rem 0;
+  
+  overflow: hidden;
+  
+  .prev-post,
+  .next-post {
+    width: 6.5rem;
+    
+    padding: .5rem;
+    
+    transition: background 300ms ease;
+    
+    border: .0625rem solid $azure;
+    border-radius: .0625rem;
+
+    background-color: $transparent-white;
+
+    text-align: center; 
+  }
+  
+  .prev-post:hover,
+  .next-post:hover {
+    background: $transparent-grey;
+  }
+  
+  .prev-post {
+    float: left;
+  }
+  
+  .next-post {
+    float: right;
+  }
+  
+}
+  
+//Profile image on about page
+
+.profile img {
+  width: 6.5rem;
+  
+  margin: .75rem 2rem 0 0;
+  
+  float: left;
+}
+
+//Archive page list styling
+.categories {
+  margin-bottom: 2rem;
+}
+
+.category-list {
+  margin-top: 0;
+  
+  li {
+    margin-bottom: .5rem;
+  }
+}
+
+//Footer styling
+.site-footer { 
+  ul {
+    margin: 1rem 0;
+    
+    padding: 0;
+    
+    color: $azure;
+  
+    font-size: .75rem;
+  }
+
+  //Adequate spacing between item.
+  li {
+    margin-right: 1rem;
+  }
+}
+
+//Separate content from footer
+.footer-hr {
+  border: 0;
+  border-top: .0625rem solid $dark-azure;
+}
+

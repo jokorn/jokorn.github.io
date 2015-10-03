@@ -1,0 +1,18 @@
+{% for link in site.navigation %}
+
+        {% assign current = nil %}
+        {% if page.url == link.url %}
+            {% assign current = 'current' %}
+        {% endif %}
+
+        <!-- page 1 to xx should also highlight "Home" navigation -->
+        {% if link.url == "/" %}
+          {% if paginator.page != nil %}
+            {% assign current = 'current' %}
+          {% endif %}
+        {% endif %}
+
+        <li class="element {% if forloop.first %}first{% endif %} {{ current }}  {% if forloop.last %}last{% endif %}">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+{% endfor %}

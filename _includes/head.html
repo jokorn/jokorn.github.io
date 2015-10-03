@@ -1,0 +1,61 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <meta name="description" content="{{ page.title }} - {{ site.title }}" />
+    <meta name="keywords" content="{{ page.keywords }}, {{ site.keywords }}" />
+
+    <!-- CSS  
+================================================== -->
+    <!-- Get: http://www.google.com/fonts/ -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,700' rel='stylesheet' type='text/css'>
+
+    <!-- Style sheet -->
+    <link rel="stylesheet" href="/assets/css/style.min.css" />
+
+
+    <!-- IE8 support with just the desktop style
+===================================================== -->
+
+    <!--[if lte IE 8]>
+<script>
+document.createElement('header');
+document.createElement('nav');
+document.createElement('section');
+document.createElement('article');
+document.createElement('aside');
+document.createElement('footer');
+document.createElement('figure');
+document.createElement('figcaption');
+</script>
+<link rel="stylesheet" type="text/css" href="/assets/css/ie8-and-down.min.css" />
+<![endif]-->
+
+
+    <!-- Load the favicon.
+================================================== -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://kornholt.com/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://kornholt.com/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://kornholt.com/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://kornholt.com/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://kornholt.com/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://kornholt.com/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="http://kornholt.com/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="http://kornholt.com/favicon-16x16.png" sizes="16x16" />
+    <meta name="application-name" content="Kornholt's blog"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="http://kornholt.com/mstile-144x144.png" />
+
+
+    <!-- Open Graph: https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/
+Twitter: https://dev.twitter.com/docs/cards/types/summary-card
+============================== -->
+    <meta property="og:title" content="{{ page.title }}"/>
+    <meta property="og:site_name" content="{{ site.title }}"/>
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+    <meta property="og:description" content="{{ page.description }}"/>
+    <meta property="og:image" content="{{site.url}}{{ page.imageurl }}"/>
+
+
+</head>

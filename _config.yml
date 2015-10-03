@@ -1,0 +1,70 @@
+# Site settings
+title: "Kornholt’s Blog"
+email: kornholtblog@outlook.com
+description: "Testing Jekyll and S3 for creating and hosting a webpage."
+baseurl: ""
+url: "http://jokorn.github.io"
+# Build settings
+permalink: pretty
+paginate: 2
+
+sass: 
+    sass_dir: assets/css
+    
+navigation:
+- title: Home
+  url: /
+- title: Archive
+  url: /archive/
+- title: About Me
+  url: /about/
+
+exclude: [.git, .gitignore, Gemfile, Gemfile.lock, package.json, Gruntfile.js, node_modules, .DS_Store, .scss-lint.yml]
+
+#Prose.io settings
+prose:
+  rooturl: '_posts'
+  siteurl: 'http://jokorn.github.io'
+  media: 'images'
+  ignore:
+    - index.md
+    - _config.yml
+    - /_layouts
+    - /_includes
+    - /_sass
+    - 404.html
+    - about.md
+    - archive.md
+    - contact.md
+    - /css
+    - /images
+    - s3_website.yml
+    - upload.sh
+  metadata:
+    _posts:
+      - name: "description"
+        field:
+            element: "text"
+            label: "Description"
+            placeholder: "Add a short description of the post"
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "category"
+        field:
+          element: "text"
+          label: "Category"
+          placeholder: "Add a category"
+      - name: "excerpt"
+        field:
+          element: "text"
+          label: "Excerpt"
+          placeholder: "Write a small excerpt (or copy paste the beginning of the post)."
+      - name: "image"
+        field:
+          element: "text"
+          label: "Image URL"
+          placeholder: "Add the filename of the main image, eg. fun-no-cat.jpg."
+        
+              

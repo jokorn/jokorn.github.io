@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  {% include head.html %}
+
+  <body>
+
+    <!-- Add header here  -->
+    {% include header.html %}
+
+
+    <!-- main content goes here -->
+
+    <section role="main" class="main-content">
+      
+      {{ content }}
+      
+      <!-- navigation for prev and next post below content -->
+      {% if page.previous != null or page.next != null %}
+        {% include nextpostnav.html %}
+      {% endif %}
+      
+    </section>
+
+    <!-- footer here -->
+
+    {% include footer.html %}
+    <!-- Loading JavaScripts -->
+    <!-- ================================================== -->
+
+  </body>
+</html>

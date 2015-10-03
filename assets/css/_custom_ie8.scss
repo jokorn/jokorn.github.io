@@ -1,0 +1,383 @@
+//colors
+$azure: rgb(81, 156, 231);
+$grey-azure: rgb(67, 85, 103);
+$light-azure: rgb(153, 194, 235);
+$dark-azure: rgb(36, 70, 103);
+$moderate-azure: rgb(63, 122, 180);
+$transparent-white: rgba(255, 255, 255, .98);
+$transparent-grey: rgba(230, 230, 230, .98);
+$p-color: #333;
+
+
+//Margins
+$large-margin: 32px;
+$small-margin: 8px;
+//Desktop header height
+$desktop-header-height: 54px;
+
+//width
+$max-width-body: 1000px;
+$max-width-p: 672px;
+
+// Generel styles
+// ----------------------------------------------------------------------------
+
+//Set base font-size for rems
+html{
+    font-size: 16px;
+}
+
+//Set standard font
+body{
+    font-family: 'Open Sans', sans-serif;
+    
+    max-width: $max-width-body;
+    margin: 0 auto;
+    padding-left: $small-margin;
+    padding-right: $small-margin;
+}
+
+//Typography from Foundation Zurb
+
+//Header styling
+h1, h2, h3, h4, h5, h6, h7{
+    color: $moderate-azure;
+    font-weight: 200; 
+    line-height: 1.4;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    text-rendering: optimizeLegibility; 
+}
+
+h1{
+    font-size: 44px;
+}
+
+h2{
+    font-size: 37px;
+}
+
+h3{
+    font-size: 27px;
+}
+
+h4{
+    font-size: 23px;
+}
+
+h5{
+    font-size: 18px;
+}
+
+h6{
+    font-size: 16px;
+}
+
+//Link styling
+a, a:visited, a:hover, a:active {
+    color: $azure;
+    text-decoration: none;
+}
+
+//Paragraph styling
+p{
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+
+
+//Navigation
+// -------------------------------------------------------------------
+
+
+//Create inline lists
+
+.inline-list li{
+    display: inline;
+    list-style-type: none;
+}
+
+.current a{
+    text-decoration: underline;
+}
+
+
+//Off canvas list styling
+
+ul.off-canvas-list {
+  display: none;
+}
+
+ul.off-canvas-list li label {
+   display: none;
+}
+
+ul.off-canvas-list li a {
+    display: none;
+}
+
+.sidebar {
+    display: none;
+}
+
+
+.sidebar-checkbox {
+    display: none;
+}
+
+
+//Mobile-header styling
+// ------------------------------------------------------
+
+
+.mobile-header{
+        display: none;
+}
+
+.mobile-title{
+    display: none;
+}
+
+
+.sidebar-toggle{
+    display: none;
+}
+
+.button {
+    display: none;
+}
+
+.button:hover {
+    display: none;
+}
+
+.mobile-header hr{
+    display: none;
+}
+
+
+
+//Desktop header styling
+// -----------------------------------------------------------
+
+.parent-header{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    height: $desktop-header-height;
+    z-index: 9999;
+//    left: $large-margin;
+//    right: $large-margin;
+    max-width: $max-width-body;
+    width: 100%;
+    max-width: $max-width-body;
+//    margin-right: auto;
+//    margin-left: auto;
+    display: block;
+}
+
+.header-wrap{
+    width: 100%;
+    max-width: $max-width-body;
+    height: $desktop-header-height;
+    position: relative;
+    background-color: rgb(255,255,255);
+    background-color: rgba(255,255,255,0.95);
+    left: -50%;
+}
+
+.site-title{
+    margin:0;
+    padding:0;
+    display:inline-block;
+    height: $desktop-header-height;
+    line-height: $desktop-header-height;
+    font-size: 32px !important;
+    color: $azure;
+}
+
+
+.parent-header ul{
+    height: $desktop-header-height;
+    line-height: $desktop-header-height;
+    margin: 0;
+    float: right;
+    text-align: right;
+    margin-left: 0;
+    color: $azure;
+}
+
+.parent-header ul li{
+    margin-right: 16px;
+}
+
+.parent-header .inline-list{
+  display: inline;
+}
+
+.header-hr{
+    border: none;
+    border-top: 1px solid;
+    background-color: $dark-azure;
+    color: $dark-azure;
+    border-color: $dark-azure;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.parent-header .last{
+    margin: 0;
+}
+
+
+
+//Main content styling
+.main-content{
+    margin-top: $desktop-header-height + 24px;
+}
+
+.main-content p{
+    color: #333;
+    max-width: $max-width-p;
+    width: 100%;
+}
+
+.img-class{
+            box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+    max-width: 100%;
+    margin: 0; 
+    padding: 0;
+}
+
+
+.img-class img{
+        box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+    border: solid 1px $dark-azure;
+    max-width: 100%;
+}
+
+figcaption{
+    font-style: italic;
+    margin: 0 0 24px 16px;
+    font-size: 14px;
+}
+
+//Footer styling
+.site-footer ul{
+    font-size: 12px;
+    color: $azure;
+    margin: 16px 0 16px 0;
+    padding: 0;
+}
+
+.site-footer ul li{
+    margin-right: 16px;
+}
+
+.footer-hr{
+    background-color: $dark-azure;
+    color: $dark-azure;
+    border-color: $dark-azure;
+    border-width: 1px 0 0 0;
+}
+
+
+
+
+
+//Separator content from navigation
+.navigation-separator {
+  border: 0;
+  border-top: 1px solid $dark-azure;
+    
+  opacity: .5;
+}
+
+//Site navigation
+.pagenavigation {
+  margin: 32px 0;
+  
+  overflow: hidden;
+  
+  .prev-post,
+  .next-post {
+    width: 104px;
+    
+    padding: 8px;
+    
+    transition: background 300ms ease;
+    
+    border: 1px solid $azure;
+    border-radius: 1px;
+
+    background-color: $transparent-white;
+
+    text-align: center; 
+  }
+  
+  .prev-post:hover,
+  .next-post:hover {
+    background: $transparent-grey;
+  }
+  
+  .prev-post {
+    float: left;
+  }
+  
+  .next-post {
+    float: right;
+  }
+  
+}
+  
+//Profile image on about page
+
+.profile img {
+  width: 104px;
+  
+  margin: 12px 32px 0 0;
+  
+  float: left;
+}
+
+//Archive page list styling
+.category-list {
+  list-style-type: circle;
+  
+  li {
+    margin-bottom: 8px;
+  }
+}
+
+//Footer styling
+.site-footer { 
+  ul {
+    margin: 16px 0;
+    
+    padding: 0;
+    
+    color: $azure;
+  
+    font-size: 12px;
+  }
+
+  //Adequate spacing between item.
+  li {
+    margin-right: 16px;
+  }
+}
+
+//Separate content from footer
+.footer-hr {
+  border: 0;
+  border-top: 1px solid $dark-azure;
+}
+

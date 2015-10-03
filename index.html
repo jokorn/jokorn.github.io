@@ -1,0 +1,45 @@
+---
+layout: default
+title: Welcome!
+description: This is my index page
+
+---
+<!-- This loops through the paginated posts -->
+<div class="posts">
+
+{% for post in paginator.posts %}
+  <a href="{{ post.url }}">
+    <p class="date">{{ post.date | date: "%B %-d, %Y" }}</p>
+  <h2>{{ post.title }}</h2>
+  
+  {% if post.image %}
+  <figure class="img-class">
+   <img src="/assets/img/{{post.image}}" alt="{{post.title}}"> 
+  </figure> 
+  {% endif %}
+
+  <p class="excerpt">
+    {{ post.excerpt }}
+  </p>
+      </a>
+  <hr class="post-separator">
+
+{% endfor %}
+  
+  </div>
+
+<!-- Pagination links -->
+<div class="pagination">
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+  {% else %}
+    <a href="{{ paginator.next_page_path }}" class="next hide">Next</a>
+  {% endif %}
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+  {% else %}
+    <a href="{{ paginator.previous_page_path }}" class="previous hide">Previous</a>
+  {% endif %}
+  <div class="page-number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</div>
+
+</div>
