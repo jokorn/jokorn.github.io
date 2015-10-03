@@ -53,6 +53,7 @@ $desktop-header-height: 3.375rem;
 //width
 $max-width-body: 64rem;
 $max-width-p: 38.63rem;
+$lineno-width: 2.5rem;
 
 // Generel styles
 // ----------------------------------------------------------------------------
@@ -534,6 +535,18 @@ padding: .5rem 1rem 0;
     
     opacity: .8;
   }
+}
+
+//Style code highlight
+.linenos {
+ width: $lineno-width; 
+  .linenodiv {
+    width: $lineno-width;
+  }
+}
+
+.code {
+  max-width: $max-width-body - $lineno-width;
 }
 
 //Styling of frontpage
