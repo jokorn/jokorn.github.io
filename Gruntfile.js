@@ -5,6 +5,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+    
     responsive_images: {
     myTask: {
       options: {
@@ -21,9 +22,24 @@ module.exports = function(grunt) {
       files: [{
         expand: true,
         src: ['**.{jpg,gif,png}'],
-        cwd: './assets/img',
-        dest: './assets/img/responsive'
+        cwd: './assets/img-src',
+        dest: './assets/img-src/responsive'
       }]
+    }},
+    
+    
+    imagemin: {
+    all: {
+        options: {
+            progressive: true,
+            optimizationLevel: 7
+        },
+        files: [{
+            expand: true,
+            cwd: './assets/img-src',
+            src: ['**/*.*'],
+            dest: './assets/img-dest/'
+        }]
     }},
     
     
@@ -109,7 +125,9 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('build', ['sass', 'postcss', 'copy:mincss', 'copy:includes', 'responsive_images', 'shell:jekyll']);
+  grunt.registerTask('build', ['sass', 'postcss', 'copy:mincss', 'copy:includes', 'responsive_images', 'newer:imagemin', 'shell:jekyll']);
 
   grunt.registerTask('serve', ['build', 'browserSync', 'watch']);
+  
+  grunt.registerTask('image', ['newer:imagemin']);
 }
