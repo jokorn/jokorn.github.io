@@ -74,6 +74,12 @@ module.exports = function(grunt) {
       cwd: 'assets/css/',
       src: ['*.min.css'],
       dest: '_site/assets/css/'
+    },
+    includes: {
+      expand: true,
+      cwd: 'assets/css/',
+      src: ['*.min.css'],
+      dest: '_includes/'
     }
   },
 
@@ -103,7 +109,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('build', ['sass', 'postcss', 'responsive_images', 'shell:jekyll']);
+  grunt.registerTask('build', ['sass', 'postcss', 'copy:mincss', 'copy:includes', 'responsive_images', 'shell:jekyll']);
 
   grunt.registerTask('serve', ['build', 'browserSync', 'watch']);
 }

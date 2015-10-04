@@ -1,3 +1,6 @@
+// fonts
+@import "fonts";
+
 /* normalize it */
 @import "normalize";
 
@@ -6,11 +9,3 @@
 @import "custom";
 
 @import "highlight";
-
-//.catbloc:not(:target) {
-//    display: none;
-//}
-//
-//.catnav a:active {
-//    text-decoration: underline;
-//}
