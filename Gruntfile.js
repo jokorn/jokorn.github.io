@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     responsive_images: {
       myTask: {
         options: {
-          quality: 85,
+          quality: 80,
           sizes: [{
             width: 320,
           },{
@@ -128,7 +128,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('image', ['imageoptim:all']);
+  grunt.registerTask('image', ['newer:imageoptim:all']);
   
   grunt.registerTask('build', ['sass', 'postcss', 'copy:mincss', 'copy:includes', 'responsive_images', 'image', 'shell:jekyll']);
 
