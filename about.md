@@ -7,7 +7,7 @@ description: This is my About Me page
 
 {::nomarkdown}
  <figure class="img-class profile">
-   <img class="profile" src="/assets/img/grey-profile.jpg" alt="Profile picture">
+   <img class="profile" src="/assets/img-dest/grey-profile-320.jpg" alt="Profile picture">
 </figure> 
 {:/}
 
