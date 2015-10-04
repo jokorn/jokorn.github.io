@@ -5,44 +5,40 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
-    
+
     responsive_images: {
-    myTask: {
-      options: {
-        sizes: [{
-          width: 320,
-        },{
-          width: 640,
-        },{
-          width: 1024,
-        },{
-          width: 2048,
-        }]
-      },
-      files: [{
-        expand: true,
-        src: ['**.{jpg,gif,png}'],
-        cwd: './assets/img-src',
-        dest: './assets/img-src/responsive'
-      }]
-    }},
-    
-    
-    imagemin: {
-    all: {
+      myTask: {
         options: {
-            progressive: true,
-            optimizationLevel: 7
+          sizes: [{
+            width: 320,
+          },{
+            width: 640,
+          },{
+            width: 1024,
+          },{
+            width: 2048,
+          }]
         },
         files: [{
-            expand: true,
-            cwd: './assets/img-src',
-            src: ['**/*.*'],
-            dest: './assets/img-dest/'
+          expand: true,
+          src: ['**.*'],
+          cwd: './assets/img-src',
+          dest: './assets/img-src/responsive'
         }]
-    }},
-    
-    
+      }},
+
+
+    imageoptim: {
+      all: {
+        options: {
+          jpegMini: false,
+          imageAlpha: true,
+          quitAfter: true
+        },
+        src: ['assets/img-dest/**/*.*']
+      }
+    },
+
     sass: {
       options: {
         compress: false,
@@ -60,7 +56,7 @@ module.exports = function(grunt) {
         ]
       }
     },
-    
+
     postcss: {
       options: {
         processors: [require('autoprefixer'), require('csswring')]
@@ -76,30 +72,36 @@ module.exports = function(grunt) {
         ]
       }
     },
-    
+
     shell: {
       jekyll: {
         command: 'jekyll build'
       }
     },
-    
-    
-  copy: {
-    mincss: {
-      expand: true,
-      cwd: 'assets/css/',
-      src: ['*.min.css'],
-      dest: '_site/assets/css/'
-    },
-    includes: {
-      expand: true,
-      cwd: 'assets/css/',
-      src: ['*.min.css'],
-      dest: '_includes/'
-    }
-  },
 
-    
+
+    copy: {
+      mincss: {
+        expand: true,
+        cwd: 'assets/css/',
+        src: ['*.min.css'],
+        dest: '_site/assets/css/'
+      },
+      includes: {
+        expand: true,
+        cwd: 'assets/css/',
+        src: ['*.min.css'],
+        dest: '_includes/'
+      },
+      images: {
+        expand: true,
+        cwd: 'assets/img-src/',
+        src: ['**/*.*'],
+        dest: 'assets/img-dest/'
+    }
+    },
+
+
     watch: {
       css: {
         files: ['assets/css/*.scss'],
@@ -110,7 +112,7 @@ module.exports = function(grunt) {
         tasks: ['shell:jekyll']
       }
     },
-    
+
     browserSync: {
       bsFiles: {
         src : './_site/**/*.*'
@@ -125,9 +127,10 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('build', ['sass', 'postcss', 'copy:mincss', 'copy:includes', 'responsive_images', 'newer:imagemin', 'shell:jekyll']);
+  grunt.registerTask('image', ['newer:copy:images','newer:imageoptim:all']);
+  
+  grunt.registerTask('build', ['sass', 'postcss', 'copy:mincss', 'copy:includes', 'responsive_images', 'image', 'shell:jekyll']);
 
   grunt.registerTask('serve', ['build', 'browserSync', 'watch']);
-  
-  grunt.registerTask('image', ['newer:imagemin']);
+
 }
