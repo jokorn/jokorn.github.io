@@ -1,8 +1,8 @@
 {% assign imagebase = {{include.url}} | split: '.' %}
 
 <figure class="img-class">
-  <a href="/assets/img-dest/{{include.url}}">
-   <img src="/assets/img-dest/responsive/{{imagebase | first}}-1024.{{imagebase | last}}" sizes="(min-width: 64rem) 64rem, 100vw" srcset="/assets/img-dest/responsive/{{imagebase | first}}-320.{{imagebase | last}} 320w, /assets/img-dest/responsive/{{imagebase | first}}-640.{{imagebase | last}} 640w, /assets/img-dest/responsive/{{imagebase | first}}-1024.{{imagebase | last}} 1024w, /assets/img-dest/responsive/{{imagebase | first}}-2048.{{imagebase | last}} 2048w" alt="{{include.caption}}">
+  <a href="/assets/img-dest/{{imagebase | first}}-2048.{{imagebase | last}}">
+   <img src="/assets/img-dest/{{imagebase | first}}-1024.{{imagebase | last}}" sizes="(min-width: 64rem) 64rem, 100vw" srcset="/assets/img-dest/{{imagebase | first}}-320.{{imagebase | last}} 320w, /assets/img-dest/{{imagebase | first}}-640.{{imagebase | last}} 640w, /assets/img-dest/{{imagebase | first}}-1024.{{imagebase | last}} 1024w, /assets/img-dest/{{imagebase | first}}-2048.{{imagebase | last}} 2048w" alt="{{include.caption}}">
    </a> 
   {% if include.caption != "" %}
   <figcaption>{{include.caption}}</figcaption>

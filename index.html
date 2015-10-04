@@ -16,7 +16,7 @@ description: This is my index page
     {% assign imagebase = {{post.image}} | split: '.' %}
     
   <figure class="img-class">
-   <img src="/assets/img-dest/responsive/{{imagebase | first}}-640.{{imagebase | last}}" sizes="(min-width: 40rem) 40rem, 100vw" srcset="/assets/img-dest/responsive/{{imagebase | first}}-320.{{imagebase | last}} 320w, /assets/img-dest/responsive/{{imagebase | first}}-640.{{imagebase | last}} 640w, /assets/img-dest/responsive/{{imagebase | first}}-1024.{{imagebase | last}} 1024w, /assets/img-dest/responsive/{{imagebase | first}}-2048.{{imagebase | last}} 2048w" alt="{{post.title}}"> 
+   <img src="/assets/img-dest/{{imagebase | first}}-640.{{imagebase | last}}" sizes="(min-width: 40rem) 40rem, 100vw" srcset="/assets/img-dest/{{imagebase | first}}-320.{{imagebase | last}} 320w, /assets/img-dest/{{imagebase | first}}-640.{{imagebase | last}} 640w, /assets/img-dest/{{imagebase | first}}-1024.{{imagebase | last}} 1024w, /assets/img-dest/{{imagebase | first}}-2048.{{imagebase | last}} 2048w" alt="{{post.title}}"> 
   </figure> 
   {% endif %}
 
