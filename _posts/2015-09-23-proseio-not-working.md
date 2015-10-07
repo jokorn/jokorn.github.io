@@ -5,7 +5,7 @@ category: Website
 excerpt: When I first created this blog I wanted a simple way to add new content. Ideally, so simple that even non-technical people could create content. After a lot of trial and error I had to abandon the "non-technical" part. It seems there still doesn't exist an easy GUI for creating blog posts in Jekyll -- or at least not for my setup.
 image: prose-io-login.png
 layout: post
-published: false
+published: true
 ---
 
 {% include image.html url="prose-io-login.png" caption="" %}
