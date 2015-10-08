@@ -106,7 +106,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['assets/css/*.scss'],
-        tasks: ['sass', 'postcss','copy:mincss']
+        tasks: ['sass', 'postcss', 'copy:mincss', 'copy:includes', 'shell:jekyll']
       },
       jekyll: {
         files: ['*.html', '*.md', '*.yml', '*.png', '*.ico', '*.xml', '_includes/**', '_layouts/*', '_posts/*', 'assets/img/**'],

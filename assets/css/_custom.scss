@@ -1,9 +1,9 @@
 
 // Media Query Ranges
 $small-max: 40em;
-$medium-min: 40.063em;
+$medium-min: 40.0625em;
 $medium-max: 64em;
-$large-min: 64.063em;
+$large-min: 64.0625em;
 $large-max: 90em;
 
 
@@ -88,13 +88,13 @@ h4,
 h5,
 h6,
 h7 {
-  margin-top: .2rem;
-  margin-bottom: .6rem;
+  margin-top: .1875rem;
+  margin-bottom: .625rem;
 
   color: $moderate-azure;
 
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.375;
   //text-rendering: optimizeLegibility;
 }
 
@@ -137,7 +137,7 @@ p {
   margin-bottom: 1.25rem;
 
   font-size: 1rem;
-  line-height: 1.8;
+  line-height: 1.8125;
   //text-rendering: optimizeLegibility;
 }
 
@@ -205,7 +205,7 @@ p {
     a {
       display: block;
 
-      padding: .66667rem;
+      padding: .6875rem;
 
 
       //hover background change effect transition
@@ -499,7 +499,7 @@ p {
     color: $p-color;
     
     font-size: 1rem;
-    line-height: 1.8;
+    line-height: 1.8125;
   }
 
   ul li {
@@ -529,11 +529,13 @@ padding: .5rem 1rem 0;
     margin: 0;
   
     padding-bottom: .5rem;
-  
-    font-size: 1.2rem;
+    
+    color: #666!important;
+
+    font-size: 1.25rem;
+    font-weight: 300;
     font-style: italic;
     
-    opacity: .8;
   }
 }
 
@@ -641,7 +643,7 @@ figcaption {
     margin: 0 0 1.5rem 1rem;
   }
 
-  font-size: .9rem;
+  font-size: .875rem;
   
   font-style: italic;
 }
