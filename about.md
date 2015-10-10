@@ -2,7 +2,7 @@
 layout: default
 title: About Me
 description: This is my About Me page
-
+permalink: /about/
 ---
 
 {::nomarkdown}
