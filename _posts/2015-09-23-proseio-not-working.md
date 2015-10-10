@@ -1,7 +1,7 @@
 ---
 title: Why Prose.io didn’t work for me
-description: I tried Prose.io for content creation but decided against. Here's why.
-category: Website
+description: I tried Prose.io for content creation but decided against it. Here's why.
+tags: [Website, Prose.io]
 excerpt: When I first created this blog I wanted a simple way to add new content. Ideally, so simple that even non-technical people could create content. After a lot of trial and error I had to abandon the "non-technical" part. It seems there still doesn't exist an easy GUI for creating blog posts in Jekyll -- or at least not for my setup.
 image: prose-io-login.png
 layout: post

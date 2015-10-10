@@ -77,6 +77,9 @@ module.exports = function(grunt) {
     shell: {
       jekyll: {
         command: 'jekyll build'
+      },
+      archive: {
+        command: 'ruby archive/_generator.ruby'
       }
     },
 
@@ -109,8 +112,8 @@ module.exports = function(grunt) {
         tasks: ['sass', 'postcss', 'copy:mincss', 'copy:includes', 'shell:jekyll']
       },
       jekyll: {
-        files: ['*.html', '*.md', '*.yml', '*.png', '*.ico', '*.xml', '_includes/**', '_layouts/*', '_posts/*', 'assets/img/**'],
-        tasks: ['shell:jekyll']
+        files: ['*.html', '*.md', '*.yml', '*.png', '*.ico', '*.xml', '_includes/**', '_layouts/*', '_posts/*', 'archive/*', 'assets/img/**'],
+        tasks: ['archive']
       }
     },
 
@@ -128,9 +131,11 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask('archive', ['shell:jekyll', 'shell:archive', 'shell:jekyll'])
+
   grunt.registerTask('image', ['newer:imageoptim:all']);
   
-  grunt.registerTask('build', ['sass', 'postcss', 'copy:mincss', 'copy:includes', 'responsive_images', 'image', 'shell:jekyll']);
+  grunt.registerTask('build', ['sass', 'postcss', 'copy:mincss', 'copy:includes', 'responsive_images', 'image', 'archive']);
 
   grunt.registerTask('serve', ['build', 'browserSync', 'watch']);
 

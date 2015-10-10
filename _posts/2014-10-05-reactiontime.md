@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Reaction time differences in fMRI event-related designs"
-description: "How I controlled for mean differences in reaction time in my event-related fMRI study"
-category: Matlab
+description: How I controlled for differences in mean reaction time in my event-related fMRI study
+tags: [Matlab]
 published: true
 excerpt: How to adjust your GLM for reaction time differences between conditions using SPM and MATLAB.
 image: mri-brain.jpg

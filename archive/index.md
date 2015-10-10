@@ -1,21 +1,24 @@
 ---
 layout: default
 title: Archive
-description: This is my projects page
-
+description: All posts sorted by tags
+permalink: archive/
+redirect_from: [archive/tags/, tags/]
 ---
 
-## Categories
 
-All blog posts sorted by category.
+## Archive
+
+All blog posts sorted by tags.
 
 <div class="categories">
-  {% for category in site.categories %}
+{% assign sorted_tags = (site.tags | sort:0) %}
+  {% for tag in sorted_tags %}
 
-     <h3>{{ category | first | capitalize }}</h3>
+           <h3>{{ tag[0] }}</h3>
 
             <ul class="category-list">
-               {% for posts in category %}
+               {% for posts in tag %}
                 {% for post in posts %}
                   {% if post.url %}
                     <li>

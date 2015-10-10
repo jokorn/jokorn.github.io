@@ -1,12 +1,12 @@
 # Site settings
 title: "Kornholt’s Blog"
 email: kornholtblog@outlook.com
-description: "Testing Jekyll and S3 for creating and hosting a webpage."
+description: "My personal wiki-like site"
 baseurl: ""
-url: "http://jokorn.github.io"
+url: "http://kornholt.com"
 # Build settings
-permalink: pretty
-paginate: 2
+permalink: '/:year/:month/:title'
+paginate: 5
 
 sass: 
     sass_dir: assets/css

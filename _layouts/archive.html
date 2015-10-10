@@ -1,0 +1,84 @@
+---
+type: archive
+layout: default
+---
+
+<h2>Archive: {{ page.title }}</h2>
+
+
+
+{% assign sorted_tags = (site.tags | sort:0) %}
+
+{% if page.month %}
+    {% capture pagemonth %} {{ page.year | append: '-' | append: page.month }} {% endcapture %}
+
+    {% for tag in sorted_tags %}
+        {% assign monthtest = false %}
+            {% for post in tag[1] %}
+                {% capture postmonth %} {{ post.date | date: '%Y-%m' }} {% endcapture %}
+                {% if postmonth == pagemonth %}
+                    {% assign monthtest = true %}
+                {% endif %}
+            {% endfor %}
+            {% if monthtest == true %}
+                <h3>{{ tag[0] }}</h3>
+                <ul>
+                {% for post in tag[1] %}
+                    {% capture postmonth %} {{ post.date | date: '%Y-%m' }} {% endcapture %}
+                    {% if postmonth == pagemonth %}
+                        {% if post.url %}
+                            <li>
+                                <a href="{{ post.url }}">
+                                <time>{{ post.date | date: "%B %-d, %Y" }}</time>
+                                - {{ post.title }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            {% endif %}
+
+    {% endfor %}                                         
+
+
+{% elsif page.year %}
+    {% capture pageyear %} {{ page.year }} {% endcapture %}
+    
+
+    {% for tag in sorted_tags %}
+        {% assign yeartest = false %}
+
+        {% for post in tag[1] %}
+                {% capture postyear %} {{ post.date | date: '%Y' }} {% endcapture %}
+                {% if postyear == pageyear %}
+                    {% assign yeartest = true %}
+                {% endif %}
+        {% endfor %}
+
+        {% if yeartest == true %}
+            <h3>{{ tag[0] }}</h3>
+            <ul>
+            {% for post in tag[1] %}
+                {% capture postyear %} {{ post.date | date: '%Y' }} {% endcapture %}
+                {% if postyear == pageyear %}
+                    {% if post.url %}
+                        <li>
+                            <a href="{{ post.url }}">
+                            <time>{{ post.date | date: "%B %-d, %Y" }}</time>
+                            - {{ post.title }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endif %}
+
+
+
+    {% endfor %}
+{% endif %}
+
+
+
