@@ -7,7 +7,7 @@ redirect_from: [archive/tags/, tags/]
 ---
 
 
-## Archive
+# Archive
 
 All blog posts sorted by tags.
 
