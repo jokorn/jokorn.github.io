@@ -42,6 +42,11 @@ prose:
     - upload.sh
   metadata:
     _posts:
+      - name: "title"
+        field:
+            element: "text"
+            label: "Title"
+            placeholder: "Add the post title"
       - name: "description"
         field:
             element: "text"
@@ -51,11 +56,11 @@ prose:
         field:
           element: "hidden"
           value: "post"
-      - name: "category"
+      - name: "tags"
         field:
           element: "text"
-          label: "Category"
-          placeholder: "Add a category"
+          label: "Tags"
+          placeholder: "Add tags, i.e. [Matlab, fMRI]"
       - name: "excerpt"
         field:
           element: "text"
