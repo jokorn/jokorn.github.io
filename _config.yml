@@ -5,7 +5,7 @@ description: "My personal wiki-like site"
 baseurl: ""
 url: "http://kornholt.com"
 # Build settings
-permalink: '/:year/:month/:title'
+permalink: '/:year/:month/:title/'
 paginate: 5
 gems: [jekyll-paginate]
 

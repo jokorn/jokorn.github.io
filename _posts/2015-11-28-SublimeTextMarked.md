@@ -1,14 +1,14 @@
 ---
 title: Marked2 and Pandoc Citations
 description: How to make Marked work with Pandoc citations and crossreferences.
+excerpt: Marked2 is a great app for previewing markdown files and exporting them to various formats. Marked2 works great with Sublime Text 3 (my new favourite text editor). However, when I'm writing academic documents I write in markdown markup and include references with pandoc-citeref and cross-references with pandoc-crossref. I then use Pandoc to convert these documents to PDF or DOCX or whatever. Marked2 naturally doesn't parse the syntax for pandoc-citeref and pandoc-crossref out of the box.
 tags: [Sublime Text, Marked, Markdown, Pandoc]
-excerpt: 
 image: marked2-logo.png
 layout: post
-published: false
+published: true
 ---
 
-{% include image.html url="marked2-logo.png" caption="" %}
+{% include image.html url="marked2-logo.png" caption=" " %}
 
 [Marked2](http://marked2app.com/) is a great app for previewing markdown files and exporting them to various formats. It is created by [Brett Terpstra](http://brettterpstra.com) and be sure to check out his site for other great applications and scripts.
 
