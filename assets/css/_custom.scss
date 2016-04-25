@@ -509,17 +509,17 @@ p {
 }
 
 blockquote {
-  max-width: $max-width-p - 2.5rem;
+  max-width: $max-width-p - 2.5rem; //- 2.5rem;
   
-  margin: 1rem 0 1rem 0;
+  margin: 0;//1rem 0 1rem 0;
   
   @media #{$medium-up} {
-    max-width: $max-width-p - 5rem;
+    max-width: $max-width-p - 2.5rem; //- 5rem;
     
-    margin: 1rem 0 1rem 2.5rem;
+    margin: 0;//1rem 0 1rem 2.5rem;
   }
   
-padding: .5rem 1rem 0;
+  padding: .5rem 1rem 0;
   
   border-left: .5rem solid $azure;
 
