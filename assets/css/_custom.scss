@@ -61,9 +61,9 @@ $lineno-width: 2.5rem;
 //Set base font-size for rems
 html {
   font-size: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smoothing: antialiased;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
+  //font-smoothing: antialiased;
 }
 
 //Set standard font
