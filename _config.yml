@@ -7,7 +7,7 @@ url: "http://kornholt.com"
 # Build settings
 permalink: '/:year/:month/:title/'
 paginate: 5
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 
 sass: 
     sass_dir: assets/css

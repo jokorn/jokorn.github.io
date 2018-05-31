@@ -12,7 +12,7 @@ redirect_from: [archive/tags/, tags/]
 All blog posts sorted by tags.
 
 <div class="categories">
-{% assign sorted_tags = (site.tags | sort:0) %}
+{% assign sorted_tags = site.tags | sort:0 %}
   {% for tag in sorted_tags %}
 
            <h3>{{ tag[0] }}</h3>
