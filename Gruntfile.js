@@ -76,7 +76,7 @@ module.exports = function(grunt) {
 
     shell: {
       jekyll: {
-        command: 'bundle exec jekyll build'
+        command: 'jekyll build'
       },
       archive: {
         command: 'ruby archive/_generator.ruby'
