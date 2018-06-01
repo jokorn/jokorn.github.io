@@ -5,7 +5,7 @@ excerpt: Marked2 is a great app for previewing markdown files and exporting them
 tags: [Sublime Text, Marked, Markdown, Pandoc]
 image: marked2-logo.png
 layout: post
-published: false
+published: true
 ---
 
 {% include image.html url="marked2-logo.png" caption=" " %}
