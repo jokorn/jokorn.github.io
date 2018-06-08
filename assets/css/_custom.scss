@@ -27,6 +27,10 @@ $large-only: '#{$screen} and (min-width: #{$large-min}) and (max-width: #{$large
   .parent-header,
   .site-footer {
     display: none !important;
+    height: 0;
+  }
+  .main-content {
+    margin-top: 0;
   }
 }
 
