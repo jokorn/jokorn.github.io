@@ -23,8 +23,8 @@ $large-only: '#{$screen} and (min-width: #{$large-min}) and (max-width: #{$large
 
 //Hide header and footer when printing
 @media print {
-  .mobile-header,
-  .desktop-header,
+  .sidebar,
+  .parent-header,
   .site-footer {
     display: none !important;
   }
@@ -163,7 +163,7 @@ p {
     color: $azure;
 
     text-align: center;
-    
+
     //Create transparent borders to avoid jittering on hover
     @media #{$medium-up} {
       border: .1875rem solid transparent;
@@ -201,7 +201,7 @@ p {
 
   li {
     margin: 0;
-    
+
     a {
       display: block;
 
@@ -226,7 +226,7 @@ p {
       background: $transparent-grey;
     }
   }
-  
+
   //Current page highlight in darker color
   .current a {
     color: $moderate-azure;
@@ -250,7 +250,7 @@ p {
   overflow: hidden;
 
   visibility: hidden;
-  
+
   backface-visibility: hidden;
 }
 
@@ -280,7 +280,7 @@ p {
   position: absolute;
 
   top: .75rem;
-  right: $small-margin; 
+  right: $small-margin;
 
   cursor: pointer;
 
@@ -289,17 +289,17 @@ p {
   //create hamburger icon
   .icon-bar {
     display: block;
-    
+
     width: 1.5625rem;
     height: .1875rem;
 
     margin-bottom: .375rem;
-    
+
     //Transition for turning hamburger to x on click
     transition: transform .5s ease, opacity .2s ease;
-    
+
     border-radius: .125rem;
-    
+
     background-color: $azure;
   }
 
@@ -319,14 +319,14 @@ p {
 //Open menu animation. Top bar rotates downwards
 .sidebar-checkbox:checked ~ .sidebar-toggle .first {
   transform: rotate(45deg);
-  
+
   transform-origin: 0% 50%;
 }
 
 //Open menu animation. Bottom bar rotates upwards
 .sidebar-checkbox:checked ~ .sidebar-toggle .last {
   transform: rotate(-45deg);
-  
+
   transform-origin: 0% 50%;
 }
 
@@ -338,14 +338,14 @@ p {
 //Close menu animation. Top bar rotates back
 .sidebar-checkbox:not(:checked) ~ .sidebar-toggle .first {
   transform: rotate(0);
-  
+
   transform-origin: 0% 50%;
 }
 
 //Close menu animation. Bottom bar rotates back
 .sidebar-checkbox:not(:checked) ~ .sidebar-toggle .last {
   transform: rotate(0);
-  
+
   transform-origin: 0% 50%;
 }
 
@@ -356,11 +356,11 @@ p {
 //Parent container for centering. Keep fixed on top all times.
 .parent-header {
   position: fixed;
-  
+
   top: 0;
   //left 50% to ensure centered when viewport greater than max width
   left: 50%;
-  
+
   width: 100%;
   //not sure about next line but it works. header perfectly aligned with content on all res.
   //maybe it accommodates enough room for wrap to be full width body + 2x margin
@@ -370,7 +370,7 @@ p {
   @media #{$small-only}{
     height: $mobile-header-height;
   }
-  
+
   z-index: 9999;
 
   //Navigation for large displays
@@ -395,7 +395,7 @@ p {
     li {
       margin-right: 1rem;
     }
-    
+
     //overrule previous spacing rule to line up border on hover and hr content separator
     .last {
       margin-right: 0;
@@ -406,29 +406,29 @@ p {
 //Needed to center fixed header when viewport greater than max width
 .header-wrap {
   position: relative;
-  
+
   //left -50% to ensure centered when viewport greater than max width
   left: -50%;
-  
+
   //max-width same as medium breakpoint and max body width
   max-width: $max-width-body;
-  
+
   padding-right: $small-margin;
   padding-left: $small-margin;
-  
+
   background-color: $transparent-white;
 }
 
 //site-title. smaller on smaller displays
 .site-title {
   display: inline-block;
-  
+
   height: $desktop-header-height;
-  
+
   padding: 0;
-  
+
   color: $azure !important;//to overrule colors for "a"
-  
+
   font-size: 2rem;
   font-weight: 300;
   line-height: $desktop-header-height;
@@ -436,7 +436,7 @@ p {
 
   @media #{$small-only} {
     height: $mobile-header-height;
-    
+
     font-size: 1.5rem;
     line-height: $mobile-header-height;
   }
@@ -448,10 +448,10 @@ p {
 //Separator between content and header
 .header-hr {
   position: relative;
-  
+
   margin-top: 0;
   margin-bottom: 0;
-  
+
   border: 0;
   border-top: .0625rem solid $dark-azure;
 }
@@ -466,12 +466,12 @@ p {
   @media #{$medium-up} {
     margin-top: $desktop-header-height + 1.5rem;
   }
-  
+
   //Text max width less than body max width to increase legibility
   p {
     width: 100%;
     max-width: $max-width-p;
-    
+
     color: $p-color;
   }
 
@@ -487,55 +487,55 @@ p {
 
   .date {
     margin: 0;
-    
+
     font-size: .75rem;
   }
 
   li {
     max-width: $max-width-p - 2.5rem;//2.5rem is left margin of ul and ol
-    
+
     margin-bottom: 1.25rem;
-    
+
     color: $p-color;
-    
+
     font-size: 1rem;
     line-height: 1.8125;
   }
 
   ul li {
-    list-style-type: circle; 
+    list-style-type: circle;
   }
 
 }
 
 blockquote {
   max-width: $max-width-p - 2.5rem; //- 2.5rem;
-  
+
   margin: 0;//1rem 0 1rem 0;
-  
+
   @media #{$medium-up} {
     max-width: $max-width-p - 2.5rem; //- 5rem;
-    
+
     margin: 0;//1rem 0 1rem 2.5rem;
   }
-  
+
   padding: .5rem 1rem 0;
-  
+
   border-left: .5rem solid $azure;
 
   background-color: $transparent-light-azure;
-  
+
   p {
     margin: 0;
-  
+
     padding-bottom: .5rem;
-    
+
     color: #666!important;
 
     font-size: 1.25rem;
     font-weight: 300;
     font-style: italic;
-    
+
   }
 }
 
@@ -543,38 +543,38 @@ blockquote {
 .posts {
   width: 100%;
   max-width: $max-width-p;
-  
+
   color: $p-color;
-  
+
   .date {
     margin: 0;
-    
+
     font-size: .75rem;
   }
-  
+
   .post-separator {
     margin: 1rem 0 2rem;
-    
+
     border: 0;
     border-top: .0625rem solid $dark-azure;
-    
+
     opacity: .5;
     }
 }
 
 .pagination {
   max-width: $max-width-p;
-  
+
   margin: 2rem 0;
-  
+
   .previous,
   .next {
     width: 4rem;
-    
+
     padding: .5rem;
-    
+
     transition: background 300ms ease;
-    
+
     border: .0625rem solid $azure;
     border-radius: .0625rem;
 
@@ -582,7 +582,7 @@ blockquote {
 
     text-align: center;
   }
-  
+
   .previous:hover,
   .next:hover {
     background: $transparent-grey;
@@ -592,18 +592,18 @@ blockquote {
     float: left;
 
   }
-  
+
   .next {
     float: right;
   }
-  
+
   .hide {
-    visibility: hidden; 
+    visibility: hidden;
   }
-  
+
   .page-number {
     padding: .5rem;
-    
+
     text-align: center;
   }
 }
@@ -621,19 +621,19 @@ blockquote {
 .img-class {
   width: 100%;
   max-width: $max-width-body;
-  
-  margin: 0; 
-  
+
+  margin: 0;
+
   padding: 0;
-  
+
   box-sizing: border-box;
 
   //Images fit entire body width and add small border
   img {
     max-width: 100%;
-    
+
     border: solid .0625rem $dark-azure;
-    
+
     box-sizing: border-box;
   }
 }
@@ -641,15 +641,15 @@ blockquote {
 //Figure caption styling
 figcaption {
   max-width: $max-width-p - 1rem; //1rem is left margin
-  
+
   margin: 0 0 1.5rem 0;
-  
+
   @media #{$medium-up} {
     margin: 0 0 1.5rem 1rem;
   }
 
   font-size: .875rem;
-  
+
   font-style: italic;
 }
 
@@ -657,54 +657,54 @@ figcaption {
 .navigation-separator {
   border: 0;
   border-top: .0625rem solid $dark-azure;
-    
+
   opacity: .5;
 }
 
 //Site navigation
 .pagenavigation {
   margin: 2rem 0;
-  
+
   overflow: hidden;
-  
+
   .prev-post,
   .next-post {
     width: 6.5rem;
-    
+
     padding: .5rem;
-    
+
     transition: background 300ms ease;
-    
+
     border: .0625rem solid $azure;
     border-radius: .0625rem;
 
     background-color: $transparent-white;
 
-    text-align: center; 
+    text-align: center;
   }
-  
+
   .prev-post:hover,
   .next-post:hover {
     background: $transparent-grey;
   }
-  
+
   .prev-post {
     float: left;
   }
-  
+
   .next-post {
     float: right;
   }
-  
+
 }
-  
+
 //Profile image on about page
 
 .profile img {
   width: 6.5rem;
-  
+
   margin: .75rem 2rem 0 0;
-  
+
   float: left;
 }
 
@@ -715,21 +715,21 @@ figcaption {
 
 .category-list {
   margin-top: 0;
-  
+
   li {
     margin-bottom: .5rem;
   }
 }
 
 //Footer styling
-.site-footer { 
+.site-footer {
   ul {
     margin: 1rem 0;
-    
+
     padding: 0;
-    
+
     color: $azure;
-  
+
     font-size: .75rem;
   }
 
@@ -744,4 +744,3 @@ figcaption {
   border: 0;
   border-top: .0625rem solid $dark-azure;
 }
-
