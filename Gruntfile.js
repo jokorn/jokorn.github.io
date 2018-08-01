@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+  const sass = require('node-sass');  
+
   require('time-grunt')(grunt);
 
   require('load-grunt-tasks')(grunt);
@@ -43,7 +45,8 @@ module.exports = function(grunt) {
     sass: {
       options: {
         compress: false,
-        sourcemap: 'none'
+        sourcemap: 'none',
+        implementation: sass
       },
       scss: {
         files: [
